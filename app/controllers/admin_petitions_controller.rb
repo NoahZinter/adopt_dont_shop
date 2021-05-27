@@ -1,4 +1,8 @@
 class AdminPetitionsController < ApplicationController
+  def index
+    @petitions = Petition.all
+  end
+
   def show
     @petition = Petition.find(params[:id])
     @associated_pet_petitions = @petition.associated_pet_petitions

@@ -14,6 +14,8 @@
     <%= link_to "Shelters", "/shelters" %>
     <%= link_to "Veterinarians", "/veterinarians" %>
     <%= link_to "Veterinary Offices", "/veterinary_offices" %>
+    <%= link_to "Admin: Shelters", "/admin/shelters" %>
+    <%= link_to "Admin: Applications", "/admin/petitions" %>
     <br>
     <br>
     <br>
@@ -22,7 +24,7 @@
 
 <body>
   <% flash.each do |type, message| %>
-    <p class="flash"><%= message %></p>
+  <p class="flash"><%= message %></p>
   <% end %>
 
   <%= yield %>
