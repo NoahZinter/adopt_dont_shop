@@ -26,6 +26,7 @@ RSpec.describe Shelter, type: :model do
     @pet_3 = @shelter_3.pets.create(name: 'Lucille Bald', breed: 'sphynx', age: 8, adoptable: true)
     @pet_4 = @shelter_1.pets.create(name: 'Ann', breed: 'ragdoll', age: 5, adoptable: true)
     @pet_5 = @shelter_2.pets.create(name: 'Tann', breed: 'doll', age: 6, adoptable: true)
+    @pet_6 = @shelter_2.pets.create(name: 'Fann', breed: 'doll', age: 6, adoptable: true)
   end
 
   describe 'class methods' do
@@ -89,6 +90,12 @@ RSpec.describe Shelter, type: :model do
     describe '.adoptable_pets' do
       it 'only returns pets that are adoptable' do
         expect(@shelter_1.adoptable_pets).to eq([@pet_2, @pet_4])
+      end
+    end
+
+    describe 'average_adoptable' do
+      it 'returns the average age of adoptable pets' do
+        expect(@shelter_1.average_adoptable.to_f.round(2)).to eq 4.0
       end
     end
 

@@ -2,3 +2,10 @@
 
 <%= "Shelter Name: #{@shelter.name}" %>
 <%= "Shelter Location: #{@shelter.city}" %>
+
+
+<div class="right_list">
+  <h1> Statistics </h1>
+  <%= "Average Age of Adoptable Pets for: #{@shelter.name}" %>
+  <%= "#{@shelter.average_adoptable.to_f.round(2)}" %>
+</div>
