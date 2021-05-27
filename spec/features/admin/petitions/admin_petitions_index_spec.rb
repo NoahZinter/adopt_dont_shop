@@ -24,4 +24,10 @@ describe 'admin petitions index' do
     expect(page).to have_link("Ted Leo's Application")
     expect(page).to have_link("Thao Nguyen's Application")
   end
+
+  it 'clicking that link travels to application show page' do
+    click_link("Ted Leo's Application")
+
+    expect(current_path).to eq("/admin/petitions/#{@petition.id}")
+  end
 end
