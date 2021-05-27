@@ -10,7 +10,7 @@ describe 'admin shelters show' do
                                 street_address: '123 Pharmacist Ln',
                                 city: 'Denver',
                                 state: 'Co',
-                                zipcode: 12_345,
+                                zipcode: 12345,
                                 goodhome: 'Lurv Fluffers',
                                 status: 'Pending')
     @pet_petition = PetPetition.create!(petition: @petition, pet: @pet_1, status: 'Approved')

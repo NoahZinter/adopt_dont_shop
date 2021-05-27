@@ -10,7 +10,7 @@ describe 'admin petitions show' do
                                  street_address: '123 Pharmacist Ln',
                                  city: 'Denver',
                                  state: 'Co',
-                                 zipcode: 12_345,
+                                 zipcode: 12345,
                                  goodhome: 'Lurv Fluffers',
                                  status: 'Pending')
     @pet_petition = PetPetition.create!(petition: @petition, pet: @pet_1)
@@ -59,7 +59,7 @@ describe 'admin petitions show' do
                                    street_address: '456 Getdown St',
                                    city: 'Los Angeles',
                                    state: 'CA',
-                                   zipcode: 12_345,
+                                   zipcode: 12345,
                                    goodhome: 'Need a dragon',
                                    status: 'Pending')
     @pet_petition_3 = PetPetition.create!(petition: @petition_2, pet: @pet_1)
