@@ -35,8 +35,8 @@ Rails.application.routes.draw do
   get '/shelters/:shelter_id/pets/new', to: 'pets#new'
   post '/shelters/:shelter_id/pets', to: 'pets#create'
 
-  get 'admin/shelters', to: 'admin_shelters#index'
-  get 'admin/shelters/:id', to: 'admin_shelters#show'
+  get '/admin/shelters', to: 'admin_shelters#index'
+  get '/admin/shelters/:id', to: 'admin_shelters#show'
 
   get '/veterinary_offices/:veterinary_office_id/veterinarians', to: 'veterinary_offices#veterinarians'
   get '/veterinary_offices/:veterinary_office_id/veterinarians/new', to: 'veterinarians#new'
@@ -48,5 +48,7 @@ Rails.application.routes.draw do
   patch '/petitions/:id/submit', to: 'petitions#submit'
   post '/petitions', to: 'petitions#create'
 
-  get 'admin/petitions/:id', to: 'admin_petitions#show'
+  get '/admin/petitions', to: 'admin_petitions#index'
+  get '/admin/petitions/:id', to: 'admin_petitions#show'
+  patch '/admin/petitions/:id', to: 'admin_petitions#update'
 end

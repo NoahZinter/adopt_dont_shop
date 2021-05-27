@@ -1,0 +1,5 @@
+<h1> All Applications </h1>
+
+<% @petitions.each do |petition| %>
+<p><%= link_to "#{petition.name}'s Application", "/admin/petitions/#{petition.id}" %></p>
+<% end %>
