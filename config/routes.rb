@@ -49,4 +49,5 @@ Rails.application.routes.draw do
   post '/petitions', to: 'petitions#create'
 
   get 'admin/petitions/:id', to: 'admin_petitions#show'
+  patch 'admin/petitions/:id', to: 'admin_petitions#update'
 end
