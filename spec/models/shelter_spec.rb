@@ -25,6 +25,7 @@ RSpec.describe Shelter, type: :model do
     @pet_2 = @shelter_1.pets.create(name: 'Clawdia', breed: 'shorthair', age: 3, adoptable: true)
     @pet_3 = @shelter_3.pets.create(name: 'Lucille Bald', breed: 'sphynx', age: 8, adoptable: true)
     @pet_4 = @shelter_1.pets.create(name: 'Ann', breed: 'ragdoll', age: 5, adoptable: true)
+    @pet_5 = @shelter_2.pets.create(name: 'Tann', breed: 'doll', age: 6, adoptable: true)
   end
 
   describe 'class methods' do
@@ -42,7 +43,7 @@ RSpec.describe Shelter, type: :model do
 
     describe '#order_by_number_of_pets' do
       it 'orders the shelters by number of pets they have, descending' do
-        expect(Shelter.order_by_number_of_pets).to eq([@shelter_1, @shelter_3, @shelter_2])
+        expect(Shelter.order_by_number_of_pets).to eq([@shelter_1, @shelter_2, @shelter_3])
       end
     end
 
@@ -62,9 +63,24 @@ RSpec.describe Shelter, type: :model do
                                     goodhome: 'Lurv Fluffers',
                                     status: 'Pending')
         pet_petition = PetPetition.create!(petition: petition, pet: @pet_1)
-        pet_petition2 = PetPetition.create!(petition: petition, pet: @pet_3)
+        pet_petition_2 = PetPetition.create!(petition: petition, pet: @pet_3)
 
         expect(Shelter.with_pending).to eq([@shelter_1, @shelter_3])
+      end
+
+      it 'returns shelters with pending in alphabetical order' do
+        petition = Petition.create!(name: 'Ted Leo',
+                                    street_address: '123 Pharmacist Ln',
+                                    city: 'Denver',
+                                    state: 'Co',
+                                    zipcode: 12_345,
+                                    goodhome: 'Lurv Fluffers',
+                                    status: 'Pending')
+        pet_petition = PetPetition.create!(petition: petition, pet: @pet_1)
+        pet_petition_2 = PetPetition.create!(petition: petition, pet: @pet_3)
+        pet_petition_3 = PetPetition.create!(petition: petition, pet: @pet_5)
+
+        expect(Shelter.with_pending).to eq([@shelter_1, @shelter_3, @shelter_2])
       end
     end
   end
