@@ -99,6 +99,22 @@ RSpec.describe Shelter, type: :model do
       end
     end
 
+    describe 'adopted_pets' do
+      it 'returns pets with approved pet_petitions' do
+        petition = Petition.create!(name: 'Ted Leo',
+                                    street_address: '123 Pharmacist Ln',
+                                    city: 'Denver',
+                                    state: 'Co',
+                                    zipcode: 12_345,
+                                    goodhome: 'Lurv Fluffers',
+                                    status: 'Pending')
+        pet_petition = PetPetition.create!(petition: petition, pet: @pet_1, status: 'Approved')
+        pet_petition_2 = PetPetition.create!(petition: petition, pet: @pet_2, status: 'Approved')
+
+        expect(@shelter_1.adopted_pets).to eq([@pet_1, @pet_2])
+      end
+    end
+
     describe '.alphabetical_pets' do
       it 'returns pets associated with the given shelter in alphabetical name order' do
         expect(@shelter_1.alphabetical_pets).to eq([@pet_4, @pet_2])

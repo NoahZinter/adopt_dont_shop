@@ -5,7 +5,11 @@
 
 
 <div class="right_list">
-  <h1> Statistics </h1>
-  <%= "Average Age of Adoptable Pets for: #{@shelter.name}" %>
-  <%= "#{@shelter.average_adoptable.to_f.round(2)}" %>
+  <h1> <%= "Statistics    " %></h1>
+  <p><%= "Average Age of Adoptable Pets:" %>
+    <%= "#{@shelter.average_adoptable.to_f.round(2)}" %></p>
+  <p> <%= "Number of Adoptable Pets:" %>
+    <%= "#{@shelter.adoptable_pets.count}" %> </p>
+  <p> <%= "Number of Adopted Pets:" %>
+    <%= "#{@shelter.adopted_pets.count}" %> </p>
 </div>

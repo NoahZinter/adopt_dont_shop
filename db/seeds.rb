@@ -15,7 +15,7 @@ Veterinarian.destroy_all
 PetPetition.destroy_all
 
 denver = Shelter.create!(name: 'Denver Pet Shelter', city: 'Denver', rank: 1, foster_program: true)
-greely = Shelter.create!(name: 'Greely Dumb Friends League', city: 'Greelyr', rank: 2, foster_program: true)
+greely = Shelter.create!(name: 'Greely Dumb Friends League', city: 'Greely', rank: 2, foster_program: true)
 eagle = Shelter.create!(name: 'Eagle Pet Sanctuary', city: 'Eagle', rank: 3, foster_program: true)
 
 fluffy = denver.pets.create!(name: 'Fluffy', breed: 'Siamese Cat', age: 12, adoptable: true)
