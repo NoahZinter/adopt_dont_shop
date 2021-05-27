@@ -17,11 +17,11 @@ describe 'admin petitions index' do
                                  zipcode: 12345,
                                  goodhome: 'Lurv Fluffers',
                                  status: 'Pending')
-
+    visit "/admin/petitions"
   end
 
   it 'contains a link to each petition' do
-
+    expect(page).to have_link("Ted Leo's Application")
+    expect(page).to have_link("Thao Nguyen's Application")
   end
-
 end
