@@ -37,6 +37,15 @@ class Shelter < ApplicationRecord
     pets.where(adoptable: true)
   end
 
+  def adopted_pets
+    pets.joins(:pet_petitions).where(pet_petitions: {status: 'Approved'})
+  end
+
+  def average_adoptable
+    adoptable = pets.where(adoptable: true)
+    adoptable.average(:age)
+  end
+
   def alphabetical_pets
     adoptable_pets.order(name: :asc)
   end
